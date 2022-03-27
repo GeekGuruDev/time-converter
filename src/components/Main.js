@@ -33,11 +33,17 @@ const Main = () => {
       hr = time % 24;
       day = Math.floor(time / 24);
     }
-    return `${day ? `${day} ${day === 1 ? "day" : "days"}` : ""}  ${
-      hr ? `${hr} ${hr === 1 ? "hour" : "hours"}` : ""
-    } ${min ? `${min} ${min === 1 ? "minute" : "minutes"}` : ""} ${
-      sec ? `${sec} ${sec === 1 ? "second" : "seconds"}` : ""
-    } ${ms ? `${ms} ${ms === 1 ? "millisecond" : "Milliseconds"}` : ""} `;
+    return `${day ? `${day} ${day === 1 ? "day" : "days"}` : ""}${
+      day && hr ? "," : ""
+    }
+    ${hr ? `${hr} ${hr === 1 ? "hour" : "hours"}` : ""}${hr && min ? ", " : ""}
+    ${min ? `${min} ${min === 1 ? "minute" : "minutes"}` : ""}${
+      min && sec ? ", " : ""
+    }
+    ${sec ? `${sec} ${sec === 1 ? "second" : "seconds"}` : ""}${
+      sec && ms ? ", " : ""
+    }
+    ${ms ? `${ms} ${ms === 1 ? "millisecond" : "Milliseconds"}` : ""} `;
   };
 
   return (

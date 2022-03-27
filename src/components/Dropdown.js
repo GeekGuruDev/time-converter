@@ -36,7 +36,7 @@ const Dropdown = ({ list, selected, setItem }) => {
       >
         {list.map((item, index) => {
           if (item === selected) {
-            return <div key={index}></div>;
+            return;
           }
           return (
             <li

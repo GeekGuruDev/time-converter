@@ -34,11 +34,13 @@ const Main = () => {
       day = Math.floor(time / 24);
     }
     return `${day ? `${day} ${day === 1 ? "day" : "days"}` : ""}${
-      day && hr ? "," : ""
+      (day && hr) || (day && min) || (day && sec) || (day && ms) ? "," : ""
     }
-    ${hr ? `${hr} ${hr === 1 ? "hour" : "hours"}` : ""}${hr && min ? ", " : ""}
+    ${hr ? `${hr} ${hr === 1 ? "hour" : "hours"}` : ""}${
+      (hr && min) || (hr && sec) || (hr && ms) ? ", " : ""
+    }
     ${min ? `${min} ${min === 1 ? "minute" : "minutes"}` : ""}${
-      min && sec ? ", " : ""
+      (min && sec) || (min && ms) ? ", " : ""
     }
     ${sec ? `${sec} ${sec === 1 ? "second" : "seconds"}` : ""}${
       sec && ms ? ", " : ""
